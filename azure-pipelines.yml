@@ -1,0 +1,13 @@
+trigger:
+- master
+
+pool:
+  name: Default
+
+steps:
+- script: echo my first maven project
+  displayName: 'run a script'
+- script: mvn clean install
+    displayName:'Build with Maven'
+- script: mvn exec:java -Dexec.mainClass="com.example.App"
+    displayName:'Run JAR file'
